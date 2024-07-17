@@ -23,7 +23,7 @@ UnseenVestingContract.CreateSchedule.handler(({ event, context }) => {
       amount: segment[0],
       exponent: segment[1],
       milestone: segment[2],
-      schedule_id: scheduleId.toString(),
+      schedule_id: event.transactionHash + event.logIndex.toString(),
     });
   });
 
