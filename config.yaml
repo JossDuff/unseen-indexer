@@ -1,0 +1,16 @@
+name: UnseenIndexer
+description: Unseen indexer
+event_decoder: viem
+networks:
+  - id: 80002
+    start_block: 100
+    end_block: null
+    contracts:
+    - name: UnseenVesting
+      address:
+      - 0xc9E2d1ad937ae9d4ffD6119cf70cf5B2b770e52a
+      handler: src/EventHandlers.ts
+      events:
+      - event: "MetadataUpdate(uint256 tokenId)"
+      - event: "BatchMetadataUpdate(uint256 fromTokenId, uint256 toTokenId)"
+      - event: "CreateSchedule(uint256 scheduleId, address funder, address indexed sender, address indexed recipient, uint256 amounts, bool cancelable, bool transferable, (uint128,uint64,uint40)[] segments, (uint40,uint40) range)"

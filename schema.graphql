@@ -1,0 +1,37 @@
+type CreateSchedule {
+  id: ID!
+  scheduleId: BigInt!
+  funder: Bytes!
+  sender: Bytes!
+  recipient: Bytes!
+  amounts: BigInt!
+  cancelable: Boolean!
+  transferable: Boolean!
+  segments: [Segment!]! @derivedFrom(field: "schedule")
+  range: Range!
+}
+
+type Segment {
+  id: ID!
+  amount: BigInt!
+  exponent: BigInt!
+  milestone: BigInt!
+  schedule: CreateSchedule!
+}
+
+type Range {
+  id: ID!
+  start: BigInt!
+  end: BigInt!
+}
+
+type BatchMetadataUpdate {
+  id: ID!
+  _fromTokenId: BigInt!
+  _toTokenId: BigInt!
+}
+
+type MetadataUpdate {
+  id: ID!
+  _tokenId: BigInt!
+}
